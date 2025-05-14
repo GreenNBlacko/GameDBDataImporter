@@ -20,7 +20,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "chalk": "^5.4.1",
+    "chalk": "^4.1.2",
     "fancy-log": "^2.0.0",
     "igdb-api-node": "^6.0.5",
     "mysql": "^2.18.1",
