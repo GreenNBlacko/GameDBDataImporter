@@ -7,13 +7,14 @@
   "type": "commonjs",
   "main": "./out/index.js",
   "scripts": {
-    "dev": "env SCHEMA_PATH='src/schema/*.ts' nodemon src/index.ts",
+    "dev": "cross-env SCHEMA_PATH='src/schema/*.ts' nodemon src/index.ts",
     "build": "tsc",
-    "start": "tsc && env SCHEMA_PATH='out/schema/*.js' node ."
+    "start": "tsc && cross-env SCHEMA_PATH='out/schema/*.js' node ."
   },
   "devDependencies": {
     "@types/fancy-log": "^2.0.2",
     "@types/node": "^22.15.18",
+    "cross-env": "^7.0.3",
     "node-ts": "^6.1.3",
     "nodemon": "^3.1.10",
     "typescript": "^5.8.3"
