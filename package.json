@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "./out/index.js",
   "scripts": {
-    "dev": "cross-env SCHEMA_PATH='src/schema/*.ts' nodemon src/index.ts",
+    "dev": "cross-env SCHEMA_PATH='src/schema/*.ts' nodemon --exec npx ts-node src/index.ts",
     "build": "tsc",
     "start": "tsc && cross-env SCHEMA_PATH='out/schema/*.js' node ."
   },
