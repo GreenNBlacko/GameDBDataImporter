@@ -1,13 +1,12 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity("AgeRating")
-export default class HardwareType extends BaseEntity {
+@Entity("Country")
+export default class Country extends BaseEntity {
     // Primary key
     @PrimaryGeneratedColumn()
-    ID: number = 0;
+    ID: number;
 
     // Values
+    @Column()
     Name: string;
-    @Column({nullable: true})
-    IconURL?: string;
 }

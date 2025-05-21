@@ -1,22 +1,22 @@
-import './config'
-import log from './logger'
 import { connectToDB } from './db/mysql';
-import { exit } from 'process';
-import chalk from 'chalk';
+import ConsoleLogger from './logs/consoleLogger';
+const log = new ConsoleLogger();
 
 async function start() {
     log.info("Connecting to DB");
     await connectToDB();
+
+    log.info("Starting the importer");
+    await ImportData();
+
+    log.success("Data import is done! Exiting...");
+    log.info("Have a nice day!");
+    exit(0);
 }
 
-console.log(`
-╔══════════════════════════════════════════════╗
-║                                              ║
-║            Game IS DB data importer          ║
-║                  By ${chalk.hex("#008000").bold("Grayscale")}                ║
-║                                              ║
-╚══════════════════════════════════════════════╝
-`);
+import './config'
+import ImportData from './igdb';
+import { exit } from 'process';
 
 log.success(".env file validated successfully");
 

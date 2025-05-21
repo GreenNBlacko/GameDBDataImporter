@@ -1,11 +1,12 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("GameRequirementType")
 export default class GameRequirementType extends BaseEntity {
     // Primary key
     @PrimaryGeneratedColumn()
-    ID: number = 0;
+    ID: number;
 
     // Values
-    Label: string = "";
+    @Column()
+    Label: string;
 }

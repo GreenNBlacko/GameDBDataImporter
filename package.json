@@ -7,13 +7,14 @@
   "type": "commonjs",
   "main": "./out/index.js",
   "scripts": {
-    "dev": "cross-env SCHEMA_PATH=src/schema/*.ts nodemon --exec ./node_modules/.bin/ts-node src/index.ts",
+    "dev": "nodemon --exec ./node_modules/.bin/ts-node src/index.ts",
     "build": "tsc",
-    "start": "tsc && cross-env SCHEMA_PATH='out/schema/*.js' node ."
+    "start": "tsc && node ."
   },
   "devDependencies": {
     "@types/fancy-log": "^2.0.2",
     "@types/node": "^22.15.18",
+    "@types/seedrandom": "^3.0.8",
     "cross-env": "^7.0.3",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
@@ -25,6 +26,7 @@
     "igdb-api-node": "^6.0.5",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.2.2",
+    "seedrandom": "^3.0.5",
     "typeorm": "^0.3.23",
     "zod": "^3.24.4"
   }

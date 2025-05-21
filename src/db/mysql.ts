@@ -1,9 +1,13 @@
-import log from '../logger';
 import { DataSource } from 'typeorm';
 import { env } from '../config';
+import { loadEntities } from '../schema';
+import ConsoleLogger from '../logs/consoleLogger';
+const log = new ConsoleLogger();
 
 export async function connectToDB() {
     try {
+        log.info("Importing tables...");
+
         const AppDataSource = new DataSource({
             type: "mysql",
             host: env.DB_HOST,
@@ -11,9 +15,9 @@ export async function connectToDB() {
             username: env.DB_USER,
             password: env.DB_PASS,
             database: env.DB_NAME,
-            synchronize: true,
+            synchronize: env.DESTROY_DB,
             logging: false,
-            entities: [env.SCHEMA_PATH]
+            entities: await loadEntities()
         })
 
         await AppDataSource.initialize();
@@ -23,7 +27,7 @@ export async function connectToDB() {
             await AppDataSource.synchronize();
         }
 
-        log.success("Connected to database");
+        log.success("Database initalized successfully");
     } catch (error) {
         log.error(error);
         process.exit(1);

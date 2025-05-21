@@ -1,11 +1,12 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("HardwareType")
 export default class HardwareType extends BaseEntity {
     // Primary key
     @PrimaryGeneratedColumn()
-    ID: number = 0;
+    ID: number;
 
     // Values
-    Name: string = "";
+    @Column()
+    Name: string;
 }
