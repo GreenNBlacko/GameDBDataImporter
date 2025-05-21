@@ -12,7 +12,7 @@ const envSchema = z.object({
 	DB_NAME: z.string().min(1, "DB_NAME is required"),
 	DB_USER: z.string().min(1, "DB_USER is required"),
 	DB_PASS: z.string().min(1, "DB_PASS is required"),
-	DESTROY_DB: z.coerce.boolean().default(false),
+	DESTROY_DB: z.coerce.boolean().default(true),
 	LOG_LEVEL: z.string().default("unset"),
 	TWITCH_CLIENT_ID: z.string().min(29, "Invalid client ID"),
 	TWITCH_APP_ACCESS_TOKEN: z.string().min(29, "Invalid access token")
