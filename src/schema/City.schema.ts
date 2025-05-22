@@ -12,7 +12,7 @@ export default class City extends BaseEntity {
     Name: string;
 
     // Foreign keys
-    @ManyToOne(() => Country, {eager: true})
+    @ManyToOne(() => Country, {eager: true, nullable: false})
     @JoinColumn({name: "CountryID"})
     country: Country;
 }
