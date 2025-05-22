@@ -15,7 +15,6 @@ export async function connectToDB() {
             username: env.DB_USER,
             password: env.DB_PASS,
             database: env.DB_NAME,
-            synchronize: env.DESTROY_DB,
             logging: false,
             entities: await loadEntities()
         })

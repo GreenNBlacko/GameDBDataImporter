@@ -1,7 +1,7 @@
 import { z } from "zod"
 import dotenv from "dotenv"
-import chalk from "chalk";
 import ConsoleLogger from "./logs/consoleLogger";
+import printBanner from "./banner";
 const log = new ConsoleLogger("DEBUG");
 
 dotenv.config()
@@ -18,16 +18,9 @@ const envSchema = z.object({
 	TWITCH_APP_ACCESS_TOKEN: z.string().min(29, "Invalid access token")
 })
 
-const parsedEnv = envSchema.safeParse(process.env)
+printBanner();
 
-console.log(`
-╔══════════════════════════════════════════════╗
-║                                              ║
-║            Game IS DB data importer          ║
-║                  By ${chalk.hex("#008000").bold("Grayscale")}                ║
-║                                              ║
-╚══════════════════════════════════════════════╝
-`);
+const parsedEnv = envSchema.safeParse(process.env)
 
 if (!parsedEnv.success) {
 	
