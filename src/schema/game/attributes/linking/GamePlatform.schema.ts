@@ -9,7 +9,7 @@ export default class GamePlatform extends BaseEntity {
     ID: number;
 
     // Foreign keys
-    @ManyToOne(() => Game)
+    @ManyToOne(() => Game, {nullable: false})
     @JoinColumn({name: "GameID"})
     game: Game
 

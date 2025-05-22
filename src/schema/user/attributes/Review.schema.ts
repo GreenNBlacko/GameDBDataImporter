@@ -19,7 +19,7 @@ export default class Review extends BaseEntity {
     Score: number;
 
     // Foreign keys
-    @ManyToOne(() => User)
+    @ManyToOne(() => User, {nullable: false})
     @JoinColumn({name: "UserID"})
     user: User
 
