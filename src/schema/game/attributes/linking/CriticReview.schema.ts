@@ -19,7 +19,7 @@ export default class CriticReview extends BaseEntity {
     Score: number;
 
     // Foreign keys
-    @ManyToOne(() => Game)
+    @ManyToOne(() => Game, {nullable: false})
     @JoinColumn({name: "GameID"})
     game: Game;
     

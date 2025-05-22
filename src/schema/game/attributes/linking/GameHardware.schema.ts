@@ -13,7 +13,7 @@ export default class GameHardware extends BaseEntity {
     @ManyToOne(() => GameRequirementType, {eager: true, nullable: false})
     RequirementType: GameRequirementType;
 
-    @ManyToOne(() => Game, (game: Game) => game.Hardware)
+    @ManyToOne(() => Game, (game: Game) => game.Hardware, {nullable: false})
     Game: Game;
     
     @ManyToOne(() => Hardware, {eager: true, nullable: false})

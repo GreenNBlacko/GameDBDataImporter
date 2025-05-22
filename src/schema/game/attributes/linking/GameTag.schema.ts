@@ -9,7 +9,7 @@ export default class GameTag extends BaseEntity {
     ID: number;
 
     // Foreign keys
-    @ManyToOne(() => Game)
+    @ManyToOne(() => Game, {nullable: false})
     @JoinColumn({name: "GameID"})
     game: Game
 
