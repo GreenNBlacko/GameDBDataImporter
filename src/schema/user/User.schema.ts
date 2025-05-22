@@ -21,17 +21,17 @@ export default class User extends BaseEntity {
     PasswordHash: string;
 
     // Foreign keys
-    @ManyToOne(() => UserType, {eager: true})
+    @ManyToOne(() => UserType, {eager: true, nullable: false})
     @JoinColumn({name: "UserType"})
     userType: UserType;
 
-    @OneToMany(() => UserImage, (image) => image.user, {eager: true})
+    @OneToMany(() => UserImage, (image) => image.user, {eager: true, nullable: false})
     userImages: UserImage[];
 
-    @ManyToOne(() => Country, {eager: true})
+    @ManyToOne(() => Country, {eager: true, nullable: false})
     @JoinColumn({name: "CountryID"})
     country: Country;
 
-    @OneToMany(() => ShippingAddress, (address) => address.user, {eager: true})
+    @OneToMany(() => ShippingAddress, (address) => address.user, {eager: true, nullable: false})
     shippingAddresses: ShippingAddress[];
 }

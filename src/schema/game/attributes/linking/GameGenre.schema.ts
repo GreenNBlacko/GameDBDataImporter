@@ -13,7 +13,7 @@ export default class GameGenre extends BaseEntity {
     @JoinColumn({name: "GameID"})
     game: Game
 
-    @ManyToOne(() => Genre, {eager: true})
+    @ManyToOne(() => Genre, {eager: true, nullable: false})
     @JoinColumn({name: "GenreID"})
     genre: Genre
 }

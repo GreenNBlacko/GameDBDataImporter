@@ -23,18 +23,18 @@ export default class Game extends BaseEntity {
     CoverImage?: string;
 
     // Relations
-    @OneToMany(() => GameHardware, (GameHardware: GameHardware) => GameHardware.Game, {eager: true})
+    @OneToMany(() => GameHardware, (GameHardware: GameHardware) => GameHardware.Game, {eager: true, nullable: false})
     Hardware: GameHardware[];
 
-    @OneToMany(() => GameGenre, (genre) => genre.game, {eager: true})
+    @OneToMany(() => GameGenre, (genre) => genre.game, {eager: true, nullable: false})
     Genres: GameGenre[];
 
-    @OneToMany(() => GameAgeRating, (ageRating) => ageRating.game, {eager: true})
+    @OneToMany(() => GameAgeRating, (ageRating) => ageRating.game, {eager: true, nullable: false})
     AgeRatings: GameAgeRating[];
 
-    @OneToMany(() => GamePlatform, (platform) => platform.game, {eager: true})
+    @OneToMany(() => GamePlatform, (platform) => platform.game, {eager: true, nullable: false})
     Platforms: Platform[];
 
-    @OneToMany(() => CriticReview, (review) => review.game, {eager: true})
+    @OneToMany(() => CriticReview, (review) => review.game, {eager: true, nullable: false})
     CriticReviews: CriticReview[];
 }

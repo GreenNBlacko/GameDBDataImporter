@@ -12,6 +12,6 @@ export default class Hardware extends BaseEntity {
     Value: string;
 
     // Relations
-    @ManyToOne(() => HardwareType, {eager: true})
+    @ManyToOne(() => HardwareType, {eager: true, nullable: false})
     Type: HardwareType
 }

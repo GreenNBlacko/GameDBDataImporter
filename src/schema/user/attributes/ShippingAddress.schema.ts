@@ -19,11 +19,11 @@ export default class ShippingAddress extends BaseEntity {
     ApartmentNumber?: number;
 
     // Foreign keys
-    @ManyToOne(() => User)
+    @ManyToOne(() => User, {nullable: false})
     @JoinColumn({name: "UserID"})
     user: User;
     
-    @ManyToOne(() => City, {eager: true})
+    @ManyToOne(() => City, {eager: true, nullable: false})
     @JoinColumn({name: "CityID"})
     city: City;
 }

@@ -13,7 +13,7 @@ export default class GameTag extends BaseEntity {
     @JoinColumn({name: "GameID"})
     game: Game
 
-    @ManyToOne(() => Tag, {eager: true})
+    @ManyToOne(() => Tag, {eager: true, nullable: false})
     @JoinColumn({name: "TagID"})
     tag: Tag
 }

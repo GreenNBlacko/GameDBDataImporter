@@ -13,11 +13,11 @@ export default class UserImage extends BaseEntity {
     URL: string;
 
     // Foreign keys
-    @ManyToOne(() => UserImageType, {eager: true})
+    @ManyToOne(() => UserImageType, {eager: true, nullable: false})
     @JoinColumn({name: "ImageType"})
     imageType: UserImageType;
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => User, {nullable: false})
     @JoinColumn({name: "UserID"})
     user: User;
 }

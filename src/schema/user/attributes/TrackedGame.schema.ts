@@ -10,14 +10,14 @@ export default class TrackedGame extends BaseEntity {
     ID: number;
 
     // Foreign keys
-    @ManyToOne(() => TrackedGameStatus, {eager: true})
+    @ManyToOne(() => TrackedGameStatus, {eager: true, nullable: false})
     @JoinColumn({name: "StatusID"})
     status: TrackedGameStatus;
 
-    @ManyToOne(() => Game, {eager: true})
+    @ManyToOne(() => Game, {eager: true, nullable: false})
     game: Game;
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => User, {nullable: false})
     @JoinColumn({name: "UserID"})
     user: User;
 }

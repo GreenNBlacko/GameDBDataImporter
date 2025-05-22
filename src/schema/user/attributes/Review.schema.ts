@@ -23,7 +23,7 @@ export default class Review extends BaseEntity {
     @JoinColumn({name: "UserID"})
     user: User
 
-    @ManyToOne(() => Game, {eager: true})
+    @ManyToOne(() => Game, {eager: true, nullable: false})
     @JoinColumn({name: "GameID"})
     game: Game
 }

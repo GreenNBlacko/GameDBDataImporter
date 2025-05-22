@@ -13,7 +13,7 @@ export default class GameAgeRating extends BaseEntity {
     @JoinColumn({name: "GameID"})
     game: Game
 
-    @ManyToOne(() => AgeRating, {eager: true})
+    @ManyToOne(() => AgeRating, {eager: true, nullable: false})
     @JoinColumn({name: "AgeRatingID"})
     ageRating: AgeRating
 }

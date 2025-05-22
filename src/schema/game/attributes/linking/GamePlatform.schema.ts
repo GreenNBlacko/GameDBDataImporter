@@ -13,7 +13,7 @@ export default class GamePlatform extends BaseEntity {
     @JoinColumn({name: "GameID"})
     game: Game
 
-    @ManyToOne(() => Platform, {eager: true})
+    @ManyToOne(() => Platform, {eager: true, nullable: false})
     @JoinColumn({name: "PlatformID"})
     platform: Platform
 }

@@ -1,5 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import CommunityContent from "../CommunityContent.schema";
+import { Column, Entity } from "typeorm";
 import { Block } from "./Block.schema";
 
 @Entity("TextImageBlock")
@@ -10,9 +9,4 @@ export default class TextImageBlock extends Block {
 
     @Column()
     Image: string;
-
-    // Foreign keys
-    @ManyToOne(() => CommunityContent)
-    @JoinColumn({name: "CommunityContentID"})
-    content: CommunityContent;
 }

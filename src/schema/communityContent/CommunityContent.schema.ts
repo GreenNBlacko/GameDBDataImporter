@@ -14,15 +14,15 @@ export default class CommunityContent extends BaseEntity {
     Title: string;
 
     // Foreign keys
-    @ManyToOne(() => CommunityContentType, {eager: true})
+    @ManyToOne(() => CommunityContentType, {eager: true, nullable: false})
     @JoinColumn({name: "TypeID"})
     type: CommunityContentType;
 
-    @ManyToOne(() => Game, {eager: true})
+    @ManyToOne(() => Game, {eager: true, nullable: false})
     @JoinColumn({name: "GameID"})
     game: Game;
 
-    @ManyToOne(() => User, {eager: true})
+    @ManyToOne(() => User, {eager: true, nullable: false})
     @JoinColumn({name: "UserID"})
     user: User;
 }

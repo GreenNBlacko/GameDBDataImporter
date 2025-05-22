@@ -23,7 +23,7 @@ export default class CriticReview extends BaseEntity {
     @JoinColumn({name: "GameID"})
     game: Game;
     
-    @ManyToOne(() => Critic, {eager: true})
+    @ManyToOne(() => Critic, {eager: true, nullable: false})
     @JoinColumn({name: "CriticID"})
     critic: Critic;
 }

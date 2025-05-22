@@ -15,15 +15,15 @@ export default class GamePurchase extends BaseEntity {
     PurchaseDate: Date;
 
     // Foreign keys
-    @ManyToOne(() => LicenseType, {eager: true})
+    @ManyToOne(() => LicenseType, {eager: true, nullable: true})
     @JoinColumn({name: "TypeID"})
     license: LicenseType
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => User, {nullable: false})
     @JoinColumn({name: "UserID"})
     user: User;
 
-    @ManyToOne(() => Game, {eager: true})
+    @ManyToOne(() => Game, {eager: true, nullable: false})
     @JoinColumn({name: "GameID"})
     game: Game
     
