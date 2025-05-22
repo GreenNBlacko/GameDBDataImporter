@@ -37,6 +37,7 @@ export default async function generateGamePurchases(_: any, logger: Logger): Pro
             purchase.user = user;
             purchase.game = game;
             purchase.PurchaseDate = new Date(Date.now() - Math.floor(Math.random() * 1_000_000_000));
+            purchase.license = license;
             purchase.shippingAddress = license.Label === "physical"
             ? addresses.find(addr => addr.user.ID === user.ID) ?? undefined
             : undefined;
